@@ -1,0 +1,403 @@
+body {
+	background-color: rgb(34, 34, 34);
+	color: hsla(0, 0%, 100%, 60%);
+	font-family: 'IM Fell English SC', serif;
+	font-size: 0.98em;
+}
+
+.borders {
+	border: 1px solid rgb(34, 34, 34);
+}
+
+.img {
+	background-image: url('https://media.istockphoto.com/vectors/pentacle-magic-sign-black-background-vector-id1064973860?k=20&m=1064973860&s=612x612&w=0&h=ffBrz3sdRUX1NNNS9yUy-ZcGHyZN4-nyPPPqqSWYI28=');
+	background-repeat: no-repeat;
+	background-size: auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.h-15 {
+	height: 15%;
+}
+
+.h-40 {
+	height: 40%;
+}
+
+.h-69 {
+	height: 69%;
+}
+
+.h-70 {
+	height: 70%;
+}
+
+.h-80 {
+	height: 80%;
+}
+
+.h-91 {
+	height: 90.8%;
+}
+
+.h-93 {
+	height: 93%;
+}
+
+.h-94 {
+	height: 94.5%;
+}
+
+.h-96 {
+	height: 96%;
+}
+
+.vh-5 {
+	height: 5vh;
+}
+
+.vh-90 {
+	height: 90vh;
+}
+
+.vh-91 {
+	height: 91.9vh;
+}
+
+.vh-95 {
+	height: 95vh;
+}
+
+textarea {
+	resize: none;
+	font-size: normal;
+	font-weight: lighter;
+	background-color: rgb(34, 34, 34);
+	color: hsla(0, 0%, 100%, 60%);
+	border: 1px solid hsla(0, 0%, 100%, 20%);
+}
+
+input {
+	background-color: rgb(34, 34, 34);
+	color: hsla(0, 0%, 100%, 60%);
+}
+
+label {
+	display: block;
+	color: hsla(0, 0%, 100%, 87%);
+	font-weight: lighter;
+}
+
+input[type="text"] {
+	border: none;
+	border-bottom: 1px solid hsla(0, 0%, 100%, 67%);
+	width: auto;
+	text-align: center;
+}
+
+#descriptionHeader {
+	text-align: start;
+}
+
+#level {
+	border: none;
+	border-bottom: 1px solid hsla(0, 0%, 100%, 67%);
+	width: auto;
+	text-align: center;
+}
+
+table input[type="text"] {
+	border: none;
+	border-bottom: 1px solid hsla(0, 0%, 100%, 67%);
+	width: 100%;
+}
+
+h4 {
+	text-align: center;
+	color: hsla(0, 0%, 100%, 87%);
+	font-weight: lighter;
+}
+
+h6 {
+	text-align: center;
+	color: hsla(0, 0%, 100%, 87%);
+	font-weight: lighter;
+}
+
+thead {
+	color: hsla(0, 0%, 100%, 87%);
+}
+
+th {
+	font-weight: lighter;
+}
+
+#ancestryDiv {
+	display: inline-flex;
+}
+
+#notes {
+	background-color: hsla(0, 0%, 100%, 67%);
+	font-weight: normal;
+	color: black;
+}
+
+.attributeInput {
+	width: 3.5em;
+	height: 3.5em;
+	border: 1px solid black;
+	border-radius: 50%;
+	text-align: center;
+	font-size: x-large;
+}
+
+.circleInput {
+	width: 2.9em;
+	height: 2.9em;
+	border: 1px solid black;
+	border-radius: 50%;
+	text-align: center;
+}
+
+#attributes {
+	position: relative;
+	top: 5.3%;
+	height: 94.7%;
+	background-color: black;
+}
+
+#attributes input {
+	background-color: hsla(0, 0%, 100%, 67%);
+	color: black;
+	font-weight: bold;
+}
+
+#strengthDiv {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 0;
+	display: inline-block;
+}
+
+#agilityDiv {
+	position: absolute;
+	left: 59%;
+	top: 73%;
+	display: inline-block;
+}
+
+#healthDiv {
+	position: absolute;
+	left: 31%;
+	top: 73%;
+	display: inline-block;
+}
+
+#intellectDiv {
+	position: absolute;
+	left: 67.3%;
+	top: 23%;
+	display: inline-block;
+}
+
+#willDiv {
+	position: absolute;
+	left: 23%;
+	top: 23%;
+	display: inline-block;
+}
+
+#sizeDiv {
+	position: absolute;
+	left: 5%;
+	top: 15%;
+	display: inline-block;
+}
+
+#speedDiv {
+	position: absolute;
+	left: 14%;
+	top: 6%;
+	display: inline-block;
+}
+
+#insanityDiv {
+	position: absolute;
+	left: 5%;
+	top: 48%;
+	display: inline-block;
+}
+
+#perceptionDiv {
+	position: absolute;
+	left: 83%;
+	top: 48%;
+	display: inline-block;
+}
+
+#defenseDiv {
+	position: absolute;
+	left: 82%;
+	top: 78%;
+	display: inline-block;
+}
+
+#healingRateDiv {
+	position: absolute;
+	left: 5%;
+	top: 78%;
+	display: inline-block;
+}
+
+#corruptionDiv {
+	position: absolute;
+	left: 73%;
+	top: 6%;
+	display: inline-block;
+}
+
+#powerDiv {
+	position: absolute;
+	left: 85%;
+	top: 15%;
+	display: inline-block;
+}
+
+#damageDiv {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 33%;
+	display: inline-block;
+}
+
+#damage {
+	width: 7.2em;
+	height: 7.2em;
+	border-radius: 50%;
+	text-align: center;
+	font-size: x-large;
+	background-image: url('https://worldbuilderblog.me/wp-content/uploads/2017/07/logo.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+#diceRoller {
+	font-size: 1em;
+}
+
+.diceInputDiv {
+	display: inline-block;
+	justify-content: center;
+}
+
+.diceInputDiv input {
+	background-color: hsla(0, 0%, 100%, 67%);
+	color: black;
+	font-weight: bold;
+	width: 4em;
+	height: 4em;
+	text-align: center;
+}
+
+#rolls {
+	font-size: small;
+}
+
+#result {
+	width: 5em;
+	height: 5em;
+	font-size: x-large;
+	border-radius: 50%;
+}
+
+.card {
+	font-size: normal;
+	font-weight: lighter;
+	background-color: rgb(34, 34, 34);
+	color: hsla(0, 0%, 100%, 60%);
+	border: 1px solid hsla(0, 0%, 100%, 20%);
+}
+
+.card a {
+	color: hsla(0, 0%, 100%, 60%);
+}
+
+.bg-image {
+	z-index: -1;
+}
+
+.registerCard {
+	height: auto;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%);
+	top: 25%;
+	display: inline-flex;
+	background-color: rgba(34, 34, 34, 87%);
+}
+
+.registerCard input {
+	background-color: hsla(0, 0%, 100%, 67%);
+	color: black;
+}
+
+.flash {
+	top: 10%;
+}
+
+.notesTab {
+	background-color: rgb(34, 34, 34);
+	font-weight: normal;
+	color: black;
+}
+
+h5 {
+	color: hsla(0, 0%, 100%, 87%);
+	font-weight: lighter;
+}
+
+#dicerollerBtn {
+	position: absolute;
+	left: -1%;
+	top: 50%;
+	transform: rotate(90deg);
+}
+
+#notesBtn {
+	position: absolute;
+	left: 96%;
+	top: 50%;
+	transform: rotate(270deg);
+}
+
+.btn {
+	color: hsla(0, 0%, 100%, 67%);
+}
+
+#saveBtn {
+	position: absolute;
+	left: 93.5%;
+	top: 9%;
+}
+
+.homeText {
+	position: absolute;
+	width: 20%;
+	text-align: center;
+	top: 25%;
+	left: 40%;
+	font-size: 1.5em;
+}
+
+#clerical {
+	position: relative;
+	top: 92%;
+}

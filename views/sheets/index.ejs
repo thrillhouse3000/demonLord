@@ -1,0 +1,28 @@
+<% layout('/layouts/boilerplate') %>
+
+<div class="container">
+    <h1>My Sheets</h1>
+<a class ='btn btn-secondary my-5' href="sheets/new">Create New Sheet</a>
+
+
+    <% for (let sheet of sheets) { %>
+        <% if (currentUser && sheet.author.equals(currentUser._id)) {%> 
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-8">
+                    
+                    <div class="card-body">
+                        <h5 class='card-title'>
+                            <a href="/sheets/<%= sheet._id  %>"><%= sheet.title %></a>
+                        </h5>
+                        <p class="card-text">
+                            Level <%= sheet.level %>, <%= sheet.ancestry %> <%= sheet.novice %><% if(sheet.expert) { %>, <%= sheet.expert %><% } %><% if(sheet.master) { %>, <%= sheet.master %><% } %>
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <% } %>
+    <% } %> 
+</div>

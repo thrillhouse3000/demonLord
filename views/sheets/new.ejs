@@ -1,0 +1,25 @@
+<% layout('/layouts/boilerplate') %>
+
+<div class="container justify-content-center align-items-center vh-95">
+    <div class="row h-100">
+        <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+            <div class="card shadow registerCard">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Sheet Title</h5>
+                    <form action="/sheets" method="POST">
+                        <div class="mb-3">
+                            <input class="form-control" type="text" id="title" name="sheet[title]" autofocus
+                                required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class='d-grid gap-2'>
+                            <button class="btn btn-secondary">Create Sheet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
