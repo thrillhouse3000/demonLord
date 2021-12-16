@@ -1,194 +1,192 @@
 <% layout('/layouts/boilerplate') %>
 <form action="/sheets/<%= sheet._id %>?_method=PUT" method="POST" id='sheetForm'>
-    <div class="container vh-95 vw-100">
-            
-            <button class="btn btn-secondary" id='dicerollerBtn' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">Dice Roller</button>
-
-            <div class="offcanvas offcanvas-start notesTab" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
-                <div class="offcanvas-header">
-                    <h5 id="offcanvasLeftLabel" class='text-center'>Dice Roller</h5>
-                    <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <div id="diceRoller" class='text-center h-100'>
-                        <div class="diceInputDiv text-center pb-3">
-                            <input type="number" id='dieQty' class='diceInput'>
-                            <label for="dieQty">Die Quantity</label>
+    <div class="container vh-90 vw-100">
+        <div class="row h-100 py-3"> 
+        <div class="col">
+            <div class="container pb-1">
+                <div class="row h-100">
+                    <div class="col-lg">
+                        <div class='d-flex pb-1'>
+                            <h6 class='pe-2'>Name</h6> <input type="text" name='sheet[name]' id='name' class='w-auto' value="<%= sheet.name %>">
                         </div>
-                        <div class="diceInputDiv text-center py-3">
-                            <select id='dieNum' class='diceInput px-2' name='sheet[attMod]'>
-                               <option value="20" selected>D20</option>
-                               <option value="6">D6</option>
-                               <option value="3">D3</option>
-                            </select>
-                            <label for="dieNum">Die Type</label>
+                        <div class='d-block h-70'>
+                            <h6 id='descriptionHeader'>Description</h6>
+                            <textarea name="sheet[description]" id="description" class='w-100'><%= sheet.description %></textarea>
                         </div>
-                        <div class="diceInputDiv text-center py-3 w-100">
-                            <input type="number" id='attMod' class='diceInput px-2' name='sheet[attMod]'>
-                            <label for="attMod">Modifier</label>
+                    </div>
+                    <div class="col-lg-6">
+                        <div id='ancestryDiv'>
+                            <h6 class='px-1'>Ancestry</h6><input type="text" name='sheet[ancestry]' id='ancestry' class='w-75 h-auto' value="<%= sheet.ancestry %>">
+                            <h6 class='px-1'>Level</h6><input type="number" name='sheet[level]' id="level" class='text-center h-auto w-25' value="<%= sheet.level %>">
                         </div>
-                        <div class="diceInputDiv text-center py-3">
-                            <input type="number" id='boons' class='diceInput'>
-                            <label for="boons">Boons</label>
+                        <div class="table-responsive-sm align-middle text-center w-100 pt-2">
+                            <table class='table-sm table-borderless w-100'>
+                                <thead>
+                                    <tr>
+                                        <th>Novice</th>
+                                        <th>Expert</th>
+                                        <th>Master</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name='sheet[novice]' id='novice' value="<%= sheet.novice %>"></td>
+                                        <td><input type="text" name='sheet[expert]' id='expert' value="<%= sheet.expert %>"></td>
+                                        <td><input type="text" name='sheet[master]' id='master' value="<%= sheet.master %>"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="diceInputDiv text-center py-3">
-                            <input type="number" id='banes' class='diceInput'>
-                            <label for="banes">Banes</label>
-                        </div>
-                        <div class="diceInputDiv text-center py-3 w-100">
-                            <button type='button' class='btn btn-secondary' onclick="diceRoller(parseInt(document.querySelector('#dieQty').value), parseInt(document.querySelector('#dieNum').value), parseInt(document.querySelector('#boons').value), parseInt(document.querySelector('#banes').value));">ROLL IT!</button>
-                        </div>
-                        <div class="diceInputDiv text-center py-3 w-100">
-                            <input type="text" id='rolls' class='diceInput w-100' name='sheet[rolls]'>
-                            <label for="rolls" id='rollsLabel'>Rolls</label>
-                        </div>
-                        <div class="diceInputDiv text-center py-3 w-100">
-                            <input type="text" id='result' class='diceInput' name='sheet[result]'>
-                            <label for="result" id='resut'>Result</label>
-                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <h6>Professions</h6>
+                        <textarea name="sheet[professions]" id="professions" class='w-100 h-70'><%= sheet.professions %></textarea>
                     </div>
                 </div>
             </div>
-
-        <div class="row h-100">
-            <div class="h-100 borders"> 
-                    <div class="container h-15 pb-1">
-                        <div class="row h-100">
-                            <div class="col-lg">
-                                <div class='d-flex pb-1'>
-                                <h6 class='pe-2'>Name</h6> <input type="text" name='sheet[name]' id='name' class='w-auto' value="<%= sheet.name %>">
-                                </div>
-                                <div class='d-block  h-70'>
-                                <h6 id='descriptionHeader'>Description</h6>
-                                <textarea name="sheet[description]" id="description" class='w-100'><%= sheet.description %></textarea>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div id='ancestryDiv'>
-                                    <h6 class='px-1'>Ancestry</h6><input type="text" name='sheet[ancestry]' id='ancestry' class='w-auto h-auto' value="<%= sheet.ancestry %>">
-                                    <h6 class='px-1'>Level</h6><input type="number" name='sheet[level]' id="level" class='text-center h-auto w-25' value="<%= sheet.level %>">
-                                </div>
-                                <div class="table-responsive-sm align-middle text-center w-100 pt-2">
-                                    <table class='table-sm table-borderless w-100'>
-                                        <thead>
-                                            <tr>
-                                                <th>Novice</th>
-                                                <th>Expert</th>
-                                                <th>Master</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><input type="text" name='sheet[novice]' id='novice' value="<%= sheet.novice %>"></td>
-                                                <td><input type="text" name='sheet[expert]' id='expert' value="<%= sheet.expert %>"></td>
-                                                <td><input type="text" name='sheet[master]' id='master' value="<%= sheet.master %>"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="col-lg">
-                                <h6>Professions</h6>
-                                <textarea name="sheet[professions]" id="professions" class='w-100 h-70'><%= sheet.professions %></textarea>
-                            </div>
+            <div class="container">
+                <div class="row h-100">
+                    <div class="col-lg pb-3">
+                        <h6>Weapons</h6>
+                        <textarea name="sheet[weapons]" id="weapons" class='w-100 h-50'><%= sheet.weapons %></textarea>
+                        <h6>Equipment</h6>
+                        <textarea name="sheet[equipment]" id="equipment" class='w-100 h-50'><%= sheet.equipment %></textarea>
+                    </div>
+                    <div class="col-lg-8 pt-5">
+                        <div class="table-responsive-sm align-middle text-center w-100">
+                            <table class='table-sm table-borderless w-100'>
+                                <thead>
+                                    <tr>
+                                        <th>Size</th>
+                                        <th>Speed</th>
+                                        <th>Corruption</th>
+                                        <th>Power</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="number" id='size' class='circleInput' name='sheet[size]' value="<%= sheet.size %>"></td>
+                                        <td><input type="number" id='speed' class='circleInput' name='sheet[speed]' value="<%= sheet.speed %>"></td>
+                                        <td> <input type="number" id='corruption' class='circleInput' name='sheet[corruption]' value="<%= sheet.corruption %>"></td>
+                                        <td> <input type="number" id='power' class='circleInput' name='sheet[power]' value="<%= sheet.power %>"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-sm align-middle text-center w-100">
+                            <table class='table-sm table-borderless w-100'>
+                                <thead>
+                                    <tr>
+                                        <th>Strength</th>
+                                        <th>Agility</th>
+                                        <th>Intellect</th>
+                                        <th>Will</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="number" id='strength' class='attributeInput' name='sheet[strength]' value="<%= sheet.strength %>"></td>
+                                        <td><input type="number" id='agility' class='attributeInput' name='sheet[agility]' value="<%= sheet.agility %>"></td>
+                                        <td><input type="number" id='intellect' class='attributeInput' name='sheet[intellect]' value="<%= sheet.intellect %>"></td>
+                                        <td><input type="number" id='will' class='attributeInput' name='sheet[will]' value="<%= sheet.will %>"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-sm align-middle text-center w-100">
+                            <table class='table-sm table-borderless w-100'>
+                                <thead>
+                                    <tr>
+                                        <th>Healing<br>Rate</th>
+                                        <th>Perception</th>
+                                        <th>Insanity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="number" id='healingRate' class='circleInput' name='sheet[healingRate]' value="<%= sheet.healingRate %>"></td>
+                                        <td><input type="number" id='perception' class='circleInput' name='sheet[perception]' value="<%= sheet.perception %>"></td>
+                                        <td> <input type="number" id='insanity' class='circleInput' name='sheet[insanity]' value="<%= sheet.insanity %>"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-sm align-middle text-center w-100">
+                            <table class='table-sm table-borderless w-100'>
+                                <thead>
+                                    <tr>
+                                        <th>Health</th>
+                                        <th>Damage</th>
+                                        <th>Defense</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="number" id='health' class='attributeInput' name='sheet[health]' value="<%= sheet.health %>"></td>
+                                        <td> <input type="number" id='damage' class='circleInput' name='sheet[damage]' value="<%= sheet.damage %>"></td>
+                                        <td><input type="number" id='defense' class='attributeInput' name='sheet[defense]' value="<%= sheet.defense %>"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <div class="container h-70 py-2">
-                        <div class="row h-100">
-                            <div class="col-lg">
-                                <h6>Talents</h6>
-                                <textarea name="sheet[talents]" id="talents" class='w-100 h-94'><%= sheet.talents %></textarea>
-                            </div>
-                            <div class="col-lg-8" id='attributes'>
-                                    <div class="bg-image py-1" 
-                                    style="background-image: url('https://media.istockphoto.com/vectors/pentacle-magic-sign-black-background-vector-id1064973860?k=20&m=1064973860&s=612x612&w=0&h=ffBrz3sdRUX1NNNS9yUy-ZcGHyZN4-nyPPPqqSWYI28=');
-                                    background-repeat: no-repeat;
-                                    background-size: auto;
-                                    background-position: center; 
-                                    height: 95%; 
-                                    width: auto;">
-                                    </div>
-                                     <div>
-                                        <div id='strengthDiv' class='text-center'>
-                                            <label for="strength">Strength</label>
-                                            <input type="number" id='strength' class='attributeInput' name='sheet[strength]' value="<%= sheet.strength %>">
-                                        </div>
-                                        <div id='agilityDiv' class='text-center'>
-                                            <input type="number" id='agility' class='attributeInput' name='sheet[agility]' value="<%= sheet.agility %>">
-                                            <label for="agility">Agility</label>
-                                        </div>
-                                        <div id='healthDiv' class='text-center'>
-                                            <input type="number" id='health' class='attributeInput' name='sheet[health]' value="<%= sheet.health %>">
-                                            <label for="health">Health</label>
-                                        </div>
-                                        <div id='intellectDiv' class='text-center'>
-                                            <label for="intellect">Intellect</label>
-                                            <input type="number" id='intellect' class='attributeInput' name='sheet[intellect]' value="<%= sheet.intellect %>">
-                                        </div>
-                                        <div id='willDiv' class='text-center'>
-                                            <label for="will">Will</label>
-                                            <input type="number" id='will' class='attributeInput' name='sheet[will]' value="<%= sheet.will %>">
-                                        </div>
-                                        <div id='sizeDiv' class='text-center'>
-                                            <label for="size">Size</label>
-                                            <input type="number" id='size' class='circleInput' name='sheet[size]' value="<%= sheet.size %>">
-                                        </div>
-                                        <div id='speedDiv' class='text-center'>
-                                            <label for="speed">Speed</label>
-                                            <input type="number" id='speed' class='circleInput' name='sheet[speed]' value="<%= sheet.speed %>">
-                                        </div>
-                                        <div id='insanityDiv' class='text-center'>
-                                            <input type="number" id='insanity' class='circleInput' name='sheet[insanity]' value="<%= sheet.insanity %>">
-                                            <label for="insanity">Insanity</label>
-                                        </div>
-                                        <div id='perceptionDiv' class='text-center'>
-                                            <input type="number" id='perception' class='circleInput' name='sheet[perception]' value="<%= sheet.perception %>">
-                                            <label for="perception">Perception</label>
-                                        </div>
-                                        <div id='defenseDiv' class='text-center'>
-                                            <label for="defense">Defense</label>
-                                            <input type="number" id='defense' class='circleInput' name='sheet[defense]' value="<%= sheet.defense %>">
-                                        </div>
-                                        <div id='healingRateDiv' class='text-center'>
-                                            <label for="healingRate">Healing Rate</label>
-                                            <input type="number" id='healingRate' class='circleInput' name='sheet[healingRate]' value="<%= sheet.healingRate %>">
-                                        </div>
-                                        <div id='corruptionDiv' class='text-center'>
-                                            <label for="corruption">Corruption</label>
-                                            <input type="number" id='corruption' class='circleInput' name='sheet[corruption]' value="<%= sheet.corruption %>">
-                                        </div>
-                                        <div id='powerDiv' class='text-center'>
-                                            <label for="power">Power</label>
-                                            <input type="number" id='power' class='circleInput' name='sheet[power]' value="<%= sheet.power %>">
-                                        </div>
-                                        <div id='damageDiv' class='text-center'>
-                                            <input type="number" id='damage' class='circleInput' name='sheet[damage]' value="<%= sheet.damage %>">
-                                            <label for="damage" class='pt-2'>Damage</label>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="col-lg w-100 h-100"> 
-                                <h6>Magic</h6>
-                                <textarea name="sheet[magic]" id="magic" class='w-100 h-94'><%= sheet.magic %></textarea>
-                            </div>
-                        </div>
+                    <div class="col-lg pb-3"> 
+                        <h6>Magic</h6>
+                        <textarea name="sheet[magic]" id="magic" class='w-100 h-50'><%= sheet.magic %></textarea>
+                        <h6>Talents</h6>
+                        <textarea name="sheet[talents]" id="talents" class='w-100 h-50'><%= sheet.talents %></textarea>
                     </div>
-                    <div class="container h-15">
-                        <div class="row h-100">
-                            <div class="col-lg">
-                                <h6>Weapons</h6>
-                                <textarea name="sheet[weapons]" id="weapons" class='w-100 h-70'><%= sheet.weapons %></textarea>
-                            </div>
-                            <div class="col-lg">
-                                <h6>Equipment</h6>
-                                <textarea name="sheet[equipment]" id="equipment" class='w-100 h-70'><%= sheet.equipment %></textarea>
-                            </div>
-                        </div>
-                    </div>
+                </div>
             </div>
         </div>
+        </div>
 
-        <button class="btn btn-secondary" id='notesBtn' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Notes</button>
+                 
+        <div class="offcanvas offcanvas-start notesTab" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasLeftLabel" class='text-center'>Dice Roller</h5>
+                <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div id="diceRoller" class='text-center h-100'>
+                    <div class="diceInputDiv text-center pb-3">
+                        <input type="number" id='dieQty' class='diceInput'>
+                        <label for="dieQty">Die Quantity</label>
+                    </div>
+                    <div class="diceInputDiv text-center py-3">
+                        <select id='dieNum' class='diceInput px-2' name='sheet[attMod]'>
+                           <option value="20" selected>D20</option>
+                           <option value="6">D6</option>
+                           <option value="3">D3</option>
+                        </select>
+                        <label for="dieNum">Die Type</label>
+                    </div>
+                    <div class="diceInputDiv text-center py-3 w-100">
+                        <input type="number" id='attMod' class='diceInput px-2' name='sheet[attMod]'>
+                        <label for="attMod">Modifier</label>
+                    </div>
+                    <div class="diceInputDiv text-center py-3">
+                        <input type="number" id='boons' class='diceInput'>
+                        <label for="boons">Boons</label>
+                    </div>
+                    <div class="diceInputDiv text-center py-3">
+                        <input type="number" id='banes' class='diceInput'>
+                        <label for="banes">Banes</label>
+                    </div>
+                    <div class="diceInputDiv text-center py-3 w-100">
+                        <button type='button' class='btn btn-secondary' onclick="diceRoller(parseInt(document.querySelector('#dieQty').value), parseInt(document.querySelector('#dieNum').value), parseInt(document.querySelector('#boons').value), parseInt(document.querySelector('#banes').value));">ROLL IT!</button>
+                    </div>
+                    <div class="diceInputDiv text-center py-3 w-100">
+                        <input type="text" id='rolls' class='diceInput w-100' name='sheet[rolls]'>
+                        <label for="rolls" id='rollsLabel'>Rolls</label>
+                    </div>
+                    <div class="diceInputDiv text-center py-3 w-100">
+                        <input type="text" id='result' class='diceInput' name='sheet[result]'>
+                        <label for="result" id='resut'>Result</label>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="offcanvas offcanvas-end notesTab" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
@@ -199,12 +197,9 @@
                 <textarea name="sheet[notes]" id="notes" class='w-100 h-100'><%= sheet.notes %></textarea>
             </div>
         </div>
-
+        
     </div>
-    
     <input type="submit" id="submit-form" class="visually-hidden">
-    <label class='btn btn-secondary' for="submit-form" id='saveBtn'>Save</label>
-
 </form>
 
 <script src='/javascripts/diceRoller.js'></script>

@@ -1,0 +1,15 @@
+<footer class='navbar bg-dark fixed-bottom vh-5 w-100'>
+    <div class='container-fluid'>
+        <% if(currentUser) {%> 
+            <div class='navbar-nav'>
+                <button class="btn btn-secondary btn-sm" id='dicerollerBtn' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">Dice Roller</button>
+            </div>
+            <div class='navbar-nav'>
+                <label class='btn btn-secondary btn-sm' for="submit-form" id='saveBtn'>Save</label>
+            </div>
+            <div class='navbar-nav'>
+                <button class="btn btn-secondary btn-sm" id='notesBtn' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Notes</button>
+            </div>
+        <% } %> 
+    </div>
+</footer>

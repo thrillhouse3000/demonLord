@@ -4,17 +4,17 @@
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="/">Home</a>
                 <% if(currentUser) {%> 
                 <a class="nav-link" href="/sheets">My Sheets</a>
                 <% } %> 
             </div>
-            <div class="navbar-nav ms-auto">
+            <div class="navbar-nav">
                 <a class="navbar-brand" href="https://schwalbentertainment.com/shadow-of-the-demon-lord/">Shadow of the Demon Lord</a>
             </div>
-            <div class="navbar-nav ms-auto">
+            <div class="navbar-nav">
                 <% if(!currentUser) {%> 
                 <a class="nav-link" href="/login">Login</a>
                 <a class="nav-link" href="/register">Register</a>

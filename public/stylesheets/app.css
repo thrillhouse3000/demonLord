@@ -61,6 +61,10 @@ input::-webkit-inner-spin-button {
 	height: 5vh;
 }
 
+.vh-80 {
+	height: 80vh;
+}
+
 .vh-90 {
 	height: 90vh;
 }
@@ -107,7 +111,7 @@ input[type="text"] {
 #level {
 	border: none;
 	border-bottom: 1px solid hsla(0, 0%, 100%, 67%);
-	width: auto;
+	width: 25%;
 	text-align: center;
 }
 
@@ -135,6 +139,7 @@ thead {
 
 th {
 	font-weight: lighter;
+	color: hsla(0, 0%, 100%, 87%);
 }
 
 #ancestryDiv {
@@ -148,20 +153,24 @@ th {
 }
 
 .attributeInput {
-	width: 3.5em;
-	height: 3.5em;
+	width: 2.8em;
+	height: 2.8em;
 	border: 1px solid black;
 	border-radius: 50%;
 	text-align: center;
 	font-size: x-large;
+	color: black;
+	background-color: hsla(0, 0%, 100%, 67%);
 }
 
 .circleInput {
-	width: 2.9em;
-	height: 2.9em;
+	width: 2.5em;
+	height: 2.5em;
 	border: 1px solid black;
 	border-radius: 50%;
 	text-align: center;
+	color: black;
+	background-color: hsla(0, 0%, 100%, 67%);
 }
 
 #attributes {
@@ -177,109 +186,9 @@ th {
 	font-weight: bold;
 }
 
-#strengthDiv {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 0;
-	display: inline-block;
-}
-
-#agilityDiv {
-	position: absolute;
-	left: 59%;
-	top: 73%;
-	display: inline-block;
-}
-
-#healthDiv {
-	position: absolute;
-	left: 31%;
-	top: 73%;
-	display: inline-block;
-}
-
-#intellectDiv {
-	position: absolute;
-	left: 67.3%;
-	top: 23%;
-	display: inline-block;
-}
-
-#willDiv {
-	position: absolute;
-	left: 23%;
-	top: 23%;
-	display: inline-block;
-}
-
-#sizeDiv {
-	position: absolute;
-	left: 5%;
-	top: 15%;
-	display: inline-block;
-}
-
-#speedDiv {
-	position: absolute;
-	left: 14%;
-	top: 6%;
-	display: inline-block;
-}
-
-#insanityDiv {
-	position: absolute;
-	left: 5%;
-	top: 48%;
-	display: inline-block;
-}
-
-#perceptionDiv {
-	position: absolute;
-	left: 83%;
-	top: 48%;
-	display: inline-block;
-}
-
-#defenseDiv {
-	position: absolute;
-	left: 82%;
-	top: 78%;
-	display: inline-block;
-}
-
-#healingRateDiv {
-	position: absolute;
-	left: 5%;
-	top: 78%;
-	display: inline-block;
-}
-
-#corruptionDiv {
-	position: absolute;
-	left: 73%;
-	top: 6%;
-	display: inline-block;
-}
-
-#powerDiv {
-	position: absolute;
-	left: 85%;
-	top: 15%;
-	display: inline-block;
-}
-
-#damageDiv {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 33%;
-	display: inline-block;
-}
-
 #damage {
-	width: 7.2em;
-	height: 7.2em;
+	width: 5em;
+	height: 5em;
 	border-radius: 50%;
 	text-align: center;
 	font-size: x-large;
@@ -364,28 +273,8 @@ h5 {
 	font-weight: lighter;
 }
 
-#dicerollerBtn {
-	position: absolute;
-	left: -1%;
-	top: 50%;
-	transform: rotate(90deg);
-}
-
-#notesBtn {
-	position: absolute;
-	left: 96%;
-	top: 50%;
-	transform: rotate(270deg);
-}
-
 .btn {
 	color: hsla(0, 0%, 100%, 67%);
-}
-
-#saveBtn {
-	position: absolute;
-	left: 93.5%;
-	top: 9%;
 }
 
 .homeText {
