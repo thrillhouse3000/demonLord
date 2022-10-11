@@ -169,6 +169,7 @@ th {
 	border: 1px solid black;
 	border-radius: 50%;
 	text-align: center;
+	font-size: large;
 	color: black;
 	background-color: hsla(0, 0%, 100%, 67%);
 }
@@ -217,7 +218,7 @@ th {
 }
 
 #rolls {
-	font-size: small;
+	font-size: normal;
 }
 
 #result {
@@ -260,6 +261,7 @@ th {
 
 .flash {
 	top: 10%;
+	z-index: 99;
 }
 
 .notesTab {
@@ -278,15 +280,37 @@ h5 {
 }
 
 .homeText {
-	position: absolute;
-	width: 20%;
-	text-align: center;
-	top: 25%;
-	left: 40%;
 	font-size: 1.5em;
+	padding-top: 25%;
 }
 
-#clerical {
-	position: relative;
-	top: 92%;
+.homeBtns {
+	padding-top: 50%;
+}
+
+.top-25 {
+	top: 25%;
+}
+
+.top-80 {
+	top: 80%;
+}
+
+#saveBtn {
+	width: 9em;
+}
+
+@media (max-width: 992px) {
+	.header {
+		height: 8vh;
+	}
+	.footer {
+		height: 6vh;
+	}
+	#talents {
+		margin-bottom: 5vh;
+	}
+	.collapse {
+		z-index: 1;
+	}
 }

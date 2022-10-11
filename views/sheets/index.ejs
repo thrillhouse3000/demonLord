@@ -1,25 +1,24 @@
 <% layout('/layouts/boilerplate') %>
 
-<div class="container">
-    <h1>My Sheets</h1>
-<a class ='btn btn-secondary my-5' href="sheets/new">Create New Sheet</a>
-
-
+<div class="container text-center">
+    <h1 class ='mt-3'>My Sheets</h1>
+<a class ='btn btn-secondary my-3' href="sheets/new">Create New Sheet</a>
     <% for (let sheet of sheets) { %>
         <% if (currentUser && sheet.author.equals(currentUser._id)) {%> 
         <div class="card mb-3">
             <div class="row">
-                <div class="col-md-8">
-                    
+                <div class="col">
                     <div class="card-body">
                         <h5 class='card-title'>
-                            <a href="/sheets/<%= sheet._id  %>"><%= sheet.title %></a>
+                            <a href="/sheets/<%= sheet._id %>"><%= sheet.title %></a>
                         </h5>
                         <p class="card-text">
-                            Level <%= sheet.level %>, <%= sheet.ancestry %> <%= sheet.novice %><% if(sheet.expert) { %>, <%= sheet.expert %><% } %><% if(sheet.master) { %>, <%= sheet.master %><% } %>
+                            Level <%= sheet.level %> <%= sheet.ancestry %> <%= sheet.novice %><% if(sheet.expert) { %>, <%= sheet.expert %><% } %><% if(sheet.master) { %>, <%= sheet.master %><% } %>
                         </p>
+                        <form action="/sheets/<%= sheet._id %>?_method=DELETE" method='POST' onsubmit="return confirm('Delete this sheet?')">
+                            <button class='btn btn-danger'>Delete</button>
+                        </form>    
                     </div>
-                    
                 </div>
             </div>
         </div>

@@ -70,6 +70,7 @@ app.get('/', (req, res) => {
 
 app.get('/sheets', isLoggedIn, async (req, res) => {
     const sheets = await Sheet.find({});
+    req.flash('success', 'Remember to Save often!'); 
     res.render('sheets/index', {sheets})
 })
 
@@ -85,7 +86,7 @@ app.post('/sheets', isLoggedIn, async (req, res) => {
 })
 
 app.get('/sheets/:id', async (req, res) => {
-    const sheet = await Sheet.findById(req.params.id).populate('author');
+    const sheet = await Sheet.findById(req.params.id).populate('author');  
     res.render('sheets/character', {sheet});
 })
 
@@ -94,6 +95,12 @@ app.put('/sheets/:id', isLoggedIn, isAuthor, async (req, res) => {
     const sheet = await Sheet.findByIdAndUpdate(id, {...req.body.sheet});
     req.flash('success', 'Sheet Saved!');
     res.redirect(`/sheets/${sheet._id}`);
+})
+
+app.delete('/sheets/:id', isLoggedIn, isAuthor, async (req, res) => {
+    const {id} = req.params;
+    await Sheet.findByIdAndDelete(id);
+    res.redirect('/sheets');
 })
 
 app.get('/register', (req, res) => {
